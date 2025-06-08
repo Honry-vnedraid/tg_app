@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import ForecastPage from './components/Forecast/ForecastPage'
 import '@mantine/dates/styles.css';
 
+
+
 function App() {
     return (
         <MantineProvider>

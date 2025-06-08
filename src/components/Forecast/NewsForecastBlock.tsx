@@ -3,6 +3,7 @@ import ContentBlock from "../App/ContentBlock";
 import { useEffect, useState } from "react";
 import TickersPills from "../News/TickersPills";
 import PriceChart from "../News/PriceChart";
+import apiInstance from "../../axiosConfig";
 
 type newsForecastDataType = {
     text: string,
@@ -11,9 +12,9 @@ type newsForecastDataType = {
 }
 
 const newsForecastDataEXAMPLE = {
-    text: 'ЕКАТЕРИНА МИЗУЛИНА БУБУБУ БЕБЕБЕ ЛЯЛЯЛЯ Я СЕМЕН ЛОБАНОВ У МЕНЯ БАШКА ИЗ КАРТОШКИ ГУГУГУ ГАГАГА',
-    tickers: ["YDEX", "SBER", "GAZP", "AMZN", "MSFT", "AAPL"],
-    predictions: [51, -30, 12, 77, 12, -12]
+    text: 'Акции Т-Банка и других айти гигантов России выросли в 2 раза после того как они выдали команде Honry офферы на стажировку, а акции западных компаний резко упали!',
+    tickers: [],
+    predictions: []
 }
 
 const NewsForecastBlock = () => {
@@ -24,12 +25,14 @@ const NewsForecastBlock = () => {
     const [focusedUID, setFocusedUID] = useState('');
 
 
+
     useEffect(() => {
         setLoading(true);
-            (async () => {
-                setInterval(() => { setNewsForecastData(newsForecastDataEXAMPLE); setLoading(false) }, 1000)
-
-            })()
+        apiInstance.get(`/summary?startDate=${new Date((Date.now() - 1 * 24 * 60 * 60 * 1000)).toISOString()}&endDate=${new Date(Date.now()).toISOString()}`).then((response) => {
+            console.log(response.data)
+            setNewsForecastData(response.data);
+            setLoading(false);
+        })
     }, [])
 
 

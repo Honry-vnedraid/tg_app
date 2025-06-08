@@ -1,9 +1,11 @@
 import { Stack } from "@mantine/core";
 import PageTitle from "../App/PageTitle";
 import Filters from "./Filters";
-import ArticleBlock from "./ArticleBlock";
+import ArticleBlock, { type Article } from "./ArticleBlock";
+import { useEffect, useState } from "react";
+import apiInstance from "../../axiosConfig";
 
-
+/* 
 const newsData = [
     {
         Title: "Яндекс и Т-банк объявили о планах слияния.",
@@ -15,8 +17,30 @@ const newsData = [
         Predictions: [0.5]
     }
 ]
-
+*/ 
 const NewsPage = () => {
+
+    const [newsData, setNewsData] = useState<Article[]>([])
+
+    useEffect(() => {
+        apiInstance.get('/news?offset=0&limit=200').then((response) => {
+            console.log(response.data)
+            console.log(response.data.map((data: any) => {
+                return {
+                    ...data,
+                    tickers: data.tickers ? data.tickers.filter((ticker: string) => ticker.length > 2 && ticker.length < 6 && ticker.toUpperCase() === ticker ) : []
+                }
+            }))
+            setNewsData(response.data.map((data: any) => {
+                return {
+                    ...data,
+                    tickers: data.tickers ? data.tickers.filter((ticker: string) => ticker.length > 2 && ticker.length < 6 && ticker.toUpperCase() === ticker ) : []
+                }
+            }))
+        }).catch((error) => {
+            console.error(error)
+        })
+    }, [])
 
     return (
         <>

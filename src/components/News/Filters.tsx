@@ -12,7 +12,7 @@ const Filters = () => {
     const [opened1, {toggle, close}] = useDisclosure();
 
     useEffect(() => {
-        toggle();
+        if (dateValue[0] || dateValue[1]) toggle();
     }, [dateValue[0], dateValue[1]])
 
     return (

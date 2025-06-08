@@ -8,23 +8,23 @@ import { useDisclosure } from "@mantine/hooks";
 const forecastData = [
     {
         name: 'Роснефть',
-        image: 'https://opis-cdn.tinkoffjournal.ru/mercury/out-pochemu-stavka-20.jpg',
-        change: 'Слабый рост'
+        image: 'https://yt3.googleusercontent.com/W5rITFbIV9I3DWeEl_6mIcETnxCdMq9d7rlHCm7uRuC3r2rdi6hZK1r2F8X1Id0rvMNRKckifRU=s900-c-k-c0x00ffffff-no-rj',
+        change: 'Сильное падение'
     },
     {
-        name: 'Роснефть',
+        name: '$NABI',
         image: 'https://opis-cdn.tinkoffjournal.ru/mercury/out-pochemu-stavka-20.jpg',
         change: 'Слабое падение'
     },
     {
-        name: 'Роснефть',
-        image: 'https://opis-cdn.tinkoffjournal.ru/mercury/out-pochemu-stavka-20.jpg',
+        name: '$LOBANOV',
+        image: 'https://news.store.rambler.ru/img/7ee58b2440d59a9d462a876089a7fc06?img-format=auto&img-1-resize=height:400,fit:max&img-2-filter=sharpen',
         change: 'Сильный рост'
     },
     {
-        name: 'Роснефть',
-        image: 'https://opis-cdn.tinkoffjournal.ru/mercury/out-pochemu-stavka-20.jpg',
-        change: 'Сильное падение'
+        name: 'ВНЕДРЕЙД',
+        image: 'https://cdn.prod.website-files.com/680787b8a9b66dba59dce022/681390228f40cf537ee96dd9_ezgif-56f9e577fdbdf9.gif',
+        change: 'Слабый рост'
     }
 ]
 
