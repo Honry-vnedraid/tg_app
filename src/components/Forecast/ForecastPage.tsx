@@ -1,7 +1,9 @@
-import { Avatar, Button, Group, Image, Stack, Text } from "@mantine/core";
+import { Avatar, Button, Group, Stack, Text } from "@mantine/core";
 import PageTitle from "../App/PageTitle";
 import ContentBlock from "../App/ContentBlock";
 import NewsForecastBlock from "./NewsForecastBlock";
+import ComingSoon from "../App/ComingSoon";
+import { useDisclosure } from "@mantine/hooks";
 
 const forecastData = [
     {
@@ -27,6 +29,7 @@ const forecastData = [
 ]
 
 const ForecastPage = () => {
+    const [opened, {toggle, close}] = useDisclosure();
     return (
         <>
             <PageTitle>Прогноз</PageTitle>
@@ -68,6 +71,7 @@ const ForecastPage = () => {
                                                 bg='#244a7f0f'
                                                 radius={16}
                                                 p={'4px 8px'}
+                                                onClick={toggle}
                                             >
                                                 <Text
                                                     fz={13}
@@ -85,6 +89,7 @@ const ForecastPage = () => {
                                                 bg='#244a7f0f'
                                                 radius={16}
                                                 p={'4px 8px'}
+                                                onClick={toggle}
                                             >
                                                 <Text
                                                     fz={13}
@@ -101,6 +106,7 @@ const ForecastPage = () => {
                     }
                 </ContentBlock>
             </Stack>
+            <ComingSoon opened={opened} close={close} toggle={toggle} />
         </>
     )
 

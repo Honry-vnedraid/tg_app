@@ -1,6 +1,6 @@
 import { Group, Stack, Text, UnstyledButton } from "@mantine/core"
 import ContentBlock from "../App/ContentBlock"
-import { NavLink, useNavigate } from "react-router"
+import { useNavigate } from "react-router"
 import { HiOutlinePresentationChartLine } from "react-icons/hi2"
 import { HiOutlineNewspaper } from "react-icons/hi2"
 import { useEffect, useState } from "react"

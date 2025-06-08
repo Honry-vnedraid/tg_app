@@ -1,11 +1,6 @@
-import { Group, Avatar, Stack, Divider, Pill, Text, Collapse } from "@mantine/core"
-import type { data } from "react-router-dom"
+import { Group, Avatar, Stack, Divider, Text, Collapse } from "@mantine/core"
 import ContentBlock from "../App/ContentBlock"
-import { useContext, useEffect, useState } from "react"
-import { CandleInterval } from "tinkoff-sdk-grpc-js/dist/generated/marketdata"
-import T_API from "../../t_api/T_API"
-import { HiArrowDownLeft, HiArrowUpRight } from "react-icons/hi2"
-import { FaArrowTrendDown, FaArrowTrendUp, FaArrowUpRightDots } from "react-icons/fa6"
+import { useState } from "react"
 import PriceChart from "./PriceChart"
 import TickersPills from "./TickersPills"
 

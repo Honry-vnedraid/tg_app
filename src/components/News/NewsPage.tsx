@@ -1,8 +1,6 @@
-import { Avatar, Divider, Group, Image, Pill, Stack, Text } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import PageTitle from "../App/PageTitle";
-import ContentBlock from "../App/ContentBlock";
 import Filters from "./Filters";
-import { useContext } from "react";
 import ArticleBlock from "./ArticleBlock";
 
 

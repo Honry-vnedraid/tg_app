@@ -2,7 +2,6 @@ import ReactECharts from 'echarts-for-react';
 import { useEffect, useState } from 'react';
 import T_API, { type Candle } from '../../t_api/T_API';
 import * as echarts from 'echarts';
-import type { format } from 'echarts/types/src/util/time.js';
 import { Center, Skeleton, Text } from '@mantine/core';
 const PriceChart = ({ instrumentId, articleTime }: { instrumentId: string, articleTime: string }) => {
     const [option, setOption] = useState({})
@@ -31,8 +30,9 @@ const PriceChart = ({ instrumentId, articleTime }: { instrumentId: string, artic
     }, [instrumentId, articleTime])
 
     useEffect(() => {
+        if (!candles.length) return;
         setOption({
-            color: ['#80FFA5'],
+            color: +candles[0].close.units > +candles[candles.length - 1].close.units ? ['#ff8080'] : ['#80FFA5'],
             responsive: true,
             maintainAspectRatio: false,
             height: 150,
@@ -107,14 +107,23 @@ const PriceChart = ({ instrumentId, articleTime }: { instrumentId: string, artic
                     showSymbol: false,
                     areaStyle: {
                         opacity: 0.8,
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, +candles[0].close.units > +candles[candles.length - 1].close.units ? [
+                            {
+                                offset: 0,
+                                color: 'rgb(255, 128, 128)'
+                            },
+                            {
+                                offset: 1,
+                                color: 'rgb(236, 1, 1)'
+                            }
+                        ] : [
                             {
                                 offset: 0,
                                 color: 'rgb(128, 255, 165)'
                             },
                             {
                                 offset: 1,
-                                color: 'rgb(1, 191, 236)'
+                                color: 'rgb(1, 236, 87)'
                             }
                         ])
                     },

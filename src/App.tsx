@@ -1,15 +1,9 @@
-import { createContext, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { MantineProvider, Stack, Title } from '@mantine/core'
-import ContentBlock from './components/App/ContentBlock'
+import { MantineProvider, Stack } from '@mantine/core'
 import '@mantine/core/styles.css';
 import Header from './components/Template/Header'
-import PageHeader from './components/App/PageHeader'
-import PageTitle from './components/App/PageTitle'
 import NewsPage from './components/News/NewsPage'
 import NavBar from './components/Template/NavBar'
-import { BrowserRouter, Route, Router, Routes } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router'
 import ForecastPage from './components/Forecast/ForecastPage'
 import '@mantine/dates/styles.css';
 
@@ -28,7 +22,7 @@ function App() {
                         <NavBar />
                     </BrowserRouter>
 
-                    <div style={{height: '120px'}}></div>
+                    <div style={{height: '120px', width: '100%', backgroundColor: '#F6F7F8'}}></div>
                 </Stack>
         </MantineProvider>
     )
